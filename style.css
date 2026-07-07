@@ -208,6 +208,7 @@ right:20px;
 width:60px;
 height:60px;
 background:#25D366;
+  
 color:white;
 border-radius:50%;
 display:flex;
@@ -216,4 +217,15 @@ justify-content:center;
 font-size:30px;
 text-decoration:none;
 box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+#why{
+padding:80px 10%;
+background:#ffffff;
+text-align:center;
+}
+
+#why h2{
+font-size:38px;
+margin-bottom:40px;
+color:#0b3d91;
 }
