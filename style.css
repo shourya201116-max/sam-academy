@@ -244,3 +244,21 @@ color:#0b3d91;
 body{
 padding-top:80px;
 }
+/* TESTIMONIALS */
+#testimonials{
+padding:80px 10%;
+background:#eef5ff;
+text-align:center;
+}
+
+#testimonials h2{
+font-size:38px;
+color:#0b3d91;
+margin-bottom:40px;
+}
+
+#testimonials .card h4{
+margin-top:15px;
+color:#0b3d91;
+font-weight:bold;
+}
