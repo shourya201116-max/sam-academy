@@ -1,228 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SAM Academy Student Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-background:#f4f7fc;
-display:flex;
-}
-
-/* Sidebar */
-
-.sidebar{
-width:260px;
-height:100vh;
-background:#0B3D91;
-position:fixed;
-color:white;
-padding:20px;
-overflow:auto;
-}
-
-.logo{
-text-align:center;
-font-size:28px;
-font-weight:bold;
-margin-bottom:35px;
-}
-
-.sidebar a{
-display:block;
-padding:15px;
-margin:8px 0;
-text-decoration:none;
-color:white;
-border-radius:10px;
-transition:.3s;
-}
-
-.sidebar a:hover{
-background:#FDB813;
-color:black;
-}
-
-/* Main */
-
-.main{
-margin-left:260px;
-width:100%;
-padding:25px;
-}
-
-.topbar{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:white;
-padding:15px 25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-
-}
-
-.search{
-
-padding:10px;
-width:300px;
-border:1px solid #ddd;
-border-radius:8px;
-
-}
-
-.profile{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.avatar{
-
-width:45px;
-height:45px;
-border-radius:50%;
-background:#0B3D91;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-
-}
-
-/* Cards */
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:30px;
-
-}
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-}
-
-.card h3{
-
-color:#0B3D91;
-margin-bottom:10px;
-
-}
-
-.value{
-
-font-size:32px;
-font-weight:bold;
-color:#FDB813;
-
-}
-
-.notice{
-
-margin-top:30px;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-
-}
-
-.notice li{
-
-margin:10px 0;
-
-}
-
-@media(max-width:768px){
-
-.sidebar{
-
-width:75px;
-
-}
-
-.logo{
-
-font-size:16px;
-
-}
-
-.sidebar a{
-
-font-size:12px;
-padding:10px;
-
-}
-
-.main{
-
-margin-left:75px;
-
-}
-
-.search{
-
-display:none;
-
-}
-
-}
-.dashboard-grid{
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:20px;
-margin-top:25px;
-}
-
-.chart-card,
-.study-card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.08);
-}
-
-.study-card p{
-margin:12px 0;
-font-size:18px;
-}
-
-@media(max-width:768px){
-
-.dashboard-grid{
-
-grid-template-columns:1fr;
-
-}
-
-                           }
-</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -230,27 +20,64 @@ grid-template-columns:1fr;
 
 <div class="sidebar">
 
-<div class="logo">SAM</div>
+<div class="logo">
+🎓 SAM Academy
+</div>
 
-<a href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+<a class="active" href="#">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</a>
 
-<a href="#"><i class="fa-solid fa-user"></i> Profile</a>
+<a href="#">
+<i class="fa-solid fa-user"></i>
+Profile
+</a>
 
-<a href="#"><i class="fa-solid fa-book"></i> Study Material</a>
+<a href="#">
+<i class="fa-solid fa-book"></i>
+Study Material
+</a>
 
-<a href="#"><i class="fa-solid fa-video"></i> Video Lectures</a>
+<a href="#">
+<i class="fa-solid fa-video"></i>
+Video Lectures
+</a>
 
-<a href="#"><i class="fa-solid fa-pen"></i> Tests</a>
+<a href="#">
+<i class="fa-solid fa-pen"></i>
+Online Tests
+</a>
 
-<a href="#"><i class="fa-solid fa-chart-column"></i> Results</a>
+<a href="#">
+<i class="fa-solid fa-chart-column"></i>
+Results
+</a>
 
-<a href="#"><i class="fa-solid fa-calendar"></i> Attendance</a>
+<a href="#">
+<i class="fa-solid fa-calendar"></i>
+Attendance
+</a>
 
-<a href="#"><i class="fa-solid fa-wallet"></i> Fees</a>
+<a href="#">
+<i class="fa-solid fa-wallet"></i>
+Fees
+</a>
 
-<a href="#"><i class="fa-solid fa-bell"></i> Notices</a>
+<a href="#">
+<i class="fa-solid fa-bell"></i>
+Notices
+</a>
 
-<a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+<a href="#">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+
+<a href="login.html">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
 
 </div>
 
@@ -258,189 +85,143 @@ grid-template-columns:1fr;
 
 <div class="topbar">
 
-<input class="search" placeholder="Search">
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search Notes, Tests...">
+
+</div>
+
+<div class="top-icons">
+
+<i class="fa-solid fa-bell"></i>
+
+<i class="fa-solid fa-moon"></i>
 
 <div class="profile">
 
-<div class="avatar">S</div>
+<img
+src="images/student.png"
+width="45"
+height="45"
+style="border-radius:50%;">
 
 <div>
 
 <b>Shourya</b>
 
-<br>
-
-Class 10
+<p>Class 10</p>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+<!-- ===== Dashboard Cards ===== -->
+
+<h1 style="margin:30px 0 20px;color:#0B3D91;">
+Dashboard Overview
+</h1>
 
 <div class="cards">
 
 <div class="card">
-
+<i class="fa-solid fa-user-graduate fa-2x"></i>
 <h3>Attendance</h3>
-
-<div class="value">96%</div>
-
+<h2>96%</h2>
+<p>Excellent Performance</p>
 </div>
 
 <div class="card">
-
+<i class="fa-solid fa-chart-line fa-2x"></i>
 <h3>Average Marks</h3>
-
-<div class="value">92%</div>
-
+<h2>92%</h2>
+<p>Keep it up!</p>
 </div>
 
 <div class="card">
-
-<h3>Fees</h3>
-
-<div class="value">Paid</div>
-
+<i class="fa-solid fa-wallet fa-2x"></i>
+<h3>Fee Status</h3>
+<h2 style="color:green;">Paid</h2>
+<p>Next Installment: October</p>
 </div>
 
 <div class="card">
+<i class="fa-solid fa-book fa-2x"></i>
+<h3>Study Notes</h3>
+<h2>28 PDFs</h2>
+<p>Download Anytime</p>
+</div>
 
+<div class="card">
+<i class="fa-solid fa-clipboard-list fa-2x"></i>
 <h3>Assignments</h3>
-
-<div class="value">3</div>
-
+<h2>3 Pending</h2>
+<p>Complete before Friday</p>
 </div>
 
 <div class="card">
-
-<h3>Notes</h3>
-
-<div class="value">28 PDFs</div>
-
-</div>
-
-<div class="card">
-
-<h3>Upcoming Test</h3>
-
-<div class="value">Maths</div>
-
+<i class="fa-solid fa-trophy fa-2x"></i>
+<h3>School Rank</h3>
+<h2>#12</h2>
+<p>Top Performer</p>
 </div>
 
 </div>
 
-<div class="notice">
+<!-- ===== Performance ===== -->
 
-<h2>Latest Notices</h2>
+<div class="dashboard-grid">
+
+<div class="chart-card">
+
+<h2>📊 Performance Chart</h2>
+
+<canvas id="marksChart"></canvas>
+
+</div>
+
+<div class="study-card">
+
+<h2>🎯 Today's Target</h2>
 
 <ul>
 
-<li>📌 Unit Test starts on 20 July.</li>
+<li>✅ Mathematics - Quadratic Equations</li>
 
-<li>📌 New Science Notes uploaded.</li>
+<li>⬜ Science - Electricity</li>
 
-<li>📌 Library open from 7:00 AM to 10:00 PM.</li>
+<li>⬜ English Grammar</li>
+
+<li>⬜ History Revision</li>
+
+<li>⬜ Solve 20 MCQs</li>
 
 </ul>
 
 </div>
-<section class="dashboard-grid">
-
-<div class="chart-card">
-<h2>Performance Chart</h2>
-<canvas id="marksChart"></canvas>
-</div>
-
-<div class="study-card">
-<h2>Today's Target</h2>
-
-<p>✅ Mathematics</p>
-
-<p>⬜ Science</p>
-
-<p>⬜ English</p>
-
-<p>⬜ Social Science</p>
 
 </div>
 
-</section>
+<!-- ===== Latest Notices ===== -->
+
+<div class="notice">
+
+<h2>📢 Latest Notices</h2>
+
+<ul>
+
+<li>📌 Mathematics Unit Test - 20 July</li>
+
+<li>📌 Science Notes Uploaded</li>
+
+<li>📌 Parent Meeting - 25 July</li>
+
+<li>📌 Library Timing: 7 AM - 10 PM</li>
+
+</ul>
+
 </div>
-<script>
-
-const ctx=document.getElementById("marksChart");
-
-new Chart(ctx,{
-type:"bar",
-
-data:{
-labels:["Math","Science","English","SST","Hindi"],
-
-datasets:[{
-label:"Marks",
-data:[95,90,88,94,91],
-backgroundColor:[
-"#0B3D91",
-"#FDB813",
-"#4CAF50",
-"#FF5722",
-"#9C27B0"
-]
-}]
-},
-
-options:{
-responsive:true,
-plugins:{
-legend:{
-display:false
-}
-}
-}
-
-});
-
-</script>
-  <script>
-
-const ctx=document.getElementById("marksChart");
-
-new Chart(ctx,{
-type:"bar",
-
-data:{
-labels:["Math","Science","English","SST","Hindi"],
-
-datasets:[{
-
-label:"Marks",
-
-data:[95,90,88,94,91],
-
-backgroundColor:[
-"#0B3D91",
-"#FDB813",
-"#4CAF50",
-"#FF5722",
-"#9C27B0"
-]
-
-}]
-},
-
-options:{
-responsive:true,
-plugins:{
-legend:{
-display:false
-}
-}
-}
-
-});
-
-  </script>
-</body>
-
-</html>
