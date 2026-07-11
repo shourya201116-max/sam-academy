@@ -9,3 +9,215 @@
 <p>Login Successful.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SAM Academy Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+background:#f4f7fc;
+}
+
+.sidebar{
+width:250px;
+background:#0b3d91;
+color:white;
+height:100vh;
+position:fixed;
+padding:20px;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+margin-bottom:30px;
+text-align:center;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:15px;
+border-radius:8px;
+margin:8px 0;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:#174ea6;
+}
+
+.main{
+margin-left:250px;
+padding:30px;
+width:100%;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.card h3{
+color:#0b3d91;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:28px;
+font-weight:bold;
+}
+
+.notice{
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.logout{
+background:#e53935;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.sidebar{
+width:70px;
+padding:10px;
+}
+
+.logo{
+font-size:16px;
+}
+
+.sidebar a{
+font-size:12px;
+padding:10px;
+}
+
+.main{
+margin-left:70px;
+}
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">SAM</div>
+
+<a href="#">🏠 Dashboard</a>
+<a href="#">👤 Profile</a>
+<a href="#">📚 Study Material</a>
+<a href="#">📝 Tests</a>
+<a href="#">📊 Results</a>
+<a href="#">📅 Attendance</a>
+<a href="#">💳 Fees</a>
+<a href="#">📢 Notices</a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+<div>
+<h1>Welcome, Student</h1>
+<p>SAM Academy of Science</p>
+</div>
+
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Attendance</h3>
+<p>96%</p>
+</div>
+
+<div class="card">
+<h3>Tests Completed</h3>
+<p>18</p>
+</div>
+
+<div class="card">
+<h3>Average Score</h3>
+<p>92%</p>
+</div>
+
+<div class="card">
+<h3>Fees Status</h3>
+<p style="color:green;">Paid</p>
+</div>
+
+</div>
+
+<div class="notice">
+<h2>Latest Notices</h2>
+<br>
+<ul>
+<li>📌 Unit Test begins from 20 July.</li>
+<li>📌 New Maths Notes uploaded.</li>
+<li>📌 Physics Assignment due on Friday.</li>
+</ul>
+</div>
+
+</div>
+
+<script type="module">
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { app } from "./firebase.js";
+
+const auth = getAuth(app);
+
+window.logout = function(){
+signOut(auth).then(()=>{
+window.location.href="login.html";
+});
+}
+</script>
+
+</body>
+</html>
