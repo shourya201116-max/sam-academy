@@ -6,10 +6,11 @@
 
 <title>SAM Academy Admin Panel</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -18,17 +19,20 @@ font-family:Arial,sans-serif;
 }
 
 body{
-display:flex;
 background:#f5f7fb;
+display:flex;
 }
+
+/* Sidebar */
 
 .sidebar{
 width:250px;
 height:100vh;
 background:#0B3D91;
+position:fixed;
 color:white;
 padding:20px;
-position:fixed;
+overflow:auto;
 }
 
 .sidebar h2{
@@ -40,9 +44,10 @@ margin-bottom:30px;
 display:block;
 color:white;
 text-decoration:none;
-padding:12px;
+padding:14px;
 margin:8px 0;
 border-radius:8px;
+transition:.3s;
 }
 
 .sidebar a:hover{
@@ -50,24 +55,32 @@ background:#FDB813;
 color:black;
 }
 
+/* Main */
+
 .main{
 margin-left:250px;
-padding:30px;
 width:100%;
+padding:30px;
 }
+
+h1{
+color:#0B3D91;
+}
+
+/* Cards */
 
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-margin-top:20px;
+margin-top:25px;
 }
 
 .card{
 background:white;
 padding:25px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 text-align:center;
 }
 
@@ -77,17 +90,27 @@ margin-bottom:10px;
 }
 
 .value{
-font-size:30px;
+font-size:32px;
 font-weight:bold;
 color:#FDB813;
 }
+
+/* Sections */
+
 .section{
-margin-top:40px;
+margin-top:35px;
 background:white;
 padding:25px;
 border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
+
+.section h2{
+margin-bottom:20px;
+color:#0B3D91;
+}
+
+/* Table */
 
 .student-table{
 width:100%;
@@ -95,46 +118,30 @@ border-collapse:collapse;
 margin-top:20px;
 }
 
-.student-table th,
-.student-table td{
-padding:12px;
-border:1px solid #ddd;
-text-align:center;
-}
-
 .student-table th{
 background:#0B3D91;
 color:white;
+padding:15px;
 }
 
-.section input,
-.section select{
-width:100%;
+.student-table td{
 padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:8px;
+text-align:center;
+border-bottom:1px solid #ddd;
 }
 
-.add-btn{
-background:#0B3D91;
-color:white;
-padding:12px 20px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
-}
+/* Buttons */
 
-.edit{
+.editBtn{
 background:#FDB813;
 border:none;
 padding:8px 15px;
 border-radius:6px;
 cursor:pointer;
+margin-right:5px;
 }
 
-.delete{
+.deleteBtn{
 background:#e53935;
 color:white;
 border:none;
@@ -143,10 +150,45 @@ border-radius:6px;
 cursor:pointer;
 }
 
+.add-btn,.update-btn{
+
+background:#0B3D91;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:15px;
+
+}
+
+.update-btn{
+display:none;
+}
+
+/* Form */
+
+.section input,
+.section select{
+
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+
+}
+
 .paid{
 color:green;
 font-weight:bold;
 }
+
+.pending{
+color:red;
+font-weight:bold;
+}
+
 </style>
 
 </head>
@@ -167,9 +209,9 @@ font-weight:bold;
 
 <a href="#"><i class="fa-solid fa-pen"></i> Tests</a>
 
-<a href="#"><i class="fa-solid fa-bell"></i> Notices</a>
-
 <a href="#"><i class="fa-solid fa-wallet"></i> Fees</a>
+
+<a href="#"><i class="fa-solid fa-bell"></i> Notices</a>
 
 <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
 
@@ -183,7 +225,7 @@ font-weight:bold;
 
 <div class="card">
 <h3>Total Students</h3>
-<div class="value">120</div>
+<div class="value" id="totalStudents">0</div>
 </div>
 
 <div class="card">
@@ -193,16 +235,12 @@ font-weight:bold;
 
 <div class="card">
 <h3>Pending Fees</h3>
-<div class="value">18</div>
+<div class="value">0</div>
 </div>
 
 <div class="card">
 <h3>Today's Attendance</h3>
 <div class="value">96%</div>
-</div>
-
-</div>
-
 </div>
 <!-- Student Management -->
 
@@ -217,15 +255,10 @@ font-weight:bold;
 <tr>
 
 <th>Name</th>
-
 <th>Class</th>
-
 <th>Attendance</th>
-
 <th>Marks</th>
-
 <th>Fees</th>
-
 <th>Action</th>
 
 </tr>
@@ -233,25 +266,8 @@ font-weight:bold;
 </thead>
 
 <tbody id="studentTable">
-</tbody>
 
-<td>10</td>
-
-<td>96%</td>
-
-<td>92%</td>
-
-<td><span class="paid">Paid</span></td>
-
-<td>
-
-<button class="edit">Edit</button>
-
-<button class="delete">Delete</button>
-
-</td>
-
-</tr>
+<!-- Students will load automatically from Firebase -->
 
 </tbody>
 
@@ -259,25 +275,33 @@ font-weight:bold;
 
 </div>
 
-<br>
+<!-- Add Student -->
 
 <div class="section">
 
-<h2>➕ Add Student</h2>
+<h2>➕ Add / Edit Student</h2>
 
-<input type="text" placeholder="Student Name">
+<input
+type="text"
+placeholder="Student Name">
 
-<input type="text" placeholder="Class">
+<input
+type="text"
+placeholder="Class">
 
-<input type="number" placeholder="Attendance">
+<input
+type="number"
+placeholder="Attendance (%)">
 
-<input type="number" placeholder="Marks">
+<input
+type="number"
+placeholder="Marks (%)">
 
 <select>
 
-<option>Paid</option>
+<option value="Paid">Paid</option>
 
-<option>Pending</option>
+<option value="Pending">Pending</option>
 
 </select>
 
@@ -285,11 +309,59 @@ font-weight:bold;
 Add Student
 </button>
 
-<button class="update-btn" style="display:none;margin-top:10px;">
+<button class="update-btn">
 Update Student
 </button>
+<!-- Search Student -->
+
+<div class="section">
+
+<h2>🔍 Search Student</h2>
+
+<input
+type="text"
+id="searchStudent"
+placeholder="Search by Name or Class...">
 
 </div>
+
+<!-- Footer -->
+
+<footer style="margin-top:40px;text-align:center;color:#777;">
+
+<p>© 2026 SAM Academy of Science | Admin Panel</p>
+
+</footer>
+
+</div>
+
+<!-- Firebase Admin JS -->
+
 <script type="module" src="admin.js"></script>
+
+<script>
+const search=document.getElementById("searchStudent");
+
+search.addEventListener("keyup",function(){
+
+const filter=search.value.toLowerCase();
+
+const rows=document.querySelectorAll("#studentTable tr");
+
+rows.forEach(row=>{
+
+const text=row.innerText.toLowerCase();
+
+if(text.includes(filter)){
+row.style.display="";
+}else{
+row.style.display="none";
+}
+
+});
+
+});
+</script>
+
 </body>
 </html>
