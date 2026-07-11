@@ -196,7 +196,35 @@ display:none;
 }
 
 }
+.dashboard-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+margin-top:25px;
+}
 
+.chart-card,
+.study-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.study-card p{
+margin:12px 0;
+font-size:18px;
+}
+
+@media(max-width:768px){
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+                           }
 </style>
 
 </head>
@@ -377,6 +405,45 @@ display:false
 });
 
 </script>
+  <script>
+
+const ctx=document.getElementById("marksChart");
+
+new Chart(ctx,{
+type:"bar",
+
+data:{
+labels:["Math","Science","English","SST","Hindi"],
+
+datasets:[{
+
+label:"Marks",
+
+data:[95,90,88,94,91],
+
+backgroundColor:[
+"#0B3D91",
+"#FDB813",
+"#4CAF50",
+"#FF5722",
+"#9C27B0"
+]
+
+}]
+},
+
+options:{
+responsive:true,
+plugins:{
+legend:{
+display:false
+}
+}
+}
+
+});
+
+  </script>
 </body>
 
 </html>
