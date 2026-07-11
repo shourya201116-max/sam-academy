@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <head>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<meta charset="UTF-8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SAM Academy Student Dashboard</title>
@@ -339,7 +342,41 @@ Class 10
 
 </section>
 </div>
+<script>
 
+const ctx=document.getElementById("marksChart");
+
+new Chart(ctx,{
+type:"bar",
+
+data:{
+labels:["Math","Science","English","SST","Hindi"],
+
+datasets:[{
+label:"Marks",
+data:[95,90,88,94,91],
+backgroundColor:[
+"#0B3D91",
+"#FDB813",
+"#4CAF50",
+"#FF5722",
+"#9C27B0"
+]
+}]
+},
+
+options:{
+responsive:true,
+plugins:{
+legend:{
+display:false
+}
+}
+}
+
+});
+
+</script>
 </body>
 
 </html>
