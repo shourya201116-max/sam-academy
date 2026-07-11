@@ -29,7 +29,7 @@ async function loadStudents() {
         <td>${student.marks}%</td>
         <td>${student.fees}</td>
         <td>
-<button class="deleteBtn" data-id="${studentDoc.id}">
+<button class="deleteBtn" data-id="${studentdoc.id}"
 Delete
 </button>
 </td>
