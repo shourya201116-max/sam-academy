@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyBOdaiU8udAXB4r0l61s2gY7Sg8tzUYSCE",
   authDomain: "sam-academy-47081.firebaseapp.com",
   projectId: "sam-academy-47081",
   storageBucket: "sam-academy-47081.firebasestorage.app",
