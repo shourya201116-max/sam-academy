@@ -85,3 +85,50 @@ document.addEventListener("click", async (e) => {
   }
 
 });
+document.addEventListener("click", async (e) => {
+
+  if (e.target.classList.contains("editBtn")) {
+
+    editingStudentId = e.target.dataset.id;
+
+    const row = e.target.closest("tr");
+    const cells = row.querySelectorAll("td");
+
+    const inputs = document.querySelectorAll(".section input");
+    const fees = document.querySelector("select");
+
+    inputs[0].value = cells[0].textContent;
+    inputs[1].value = cells[1].textContent;
+    inputs[2].value = cells[2].textContent.replace("%","");
+    inputs[3].value = cells[3].textContent.replace("%","");
+    fees.value = cells[4].textContent;
+
+    document.querySelector(".add-btn").style.display = "none";
+    document.querySelector(".update-btn").style.display = "inline-block";
+
+  }
+
+});
+document.querySelector(".update-btn").addEventListener("click", async () => {
+
+  const inputs = document.querySelectorAll(".section input");
+  const fees = document.querySelector("select");
+
+  await updateDoc(doc(db, "students", editingStudentId), {
+
+    name: inputs[0].value,
+    class: inputs[1].value,
+    attendance: Number(inputs[2].value),
+    marks: Number(inputs[3].value),
+    fees: fees.value
+
+  });
+
+  alert("Student Updated Successfully!");
+
+  document.querySelector(".add-btn").style.display = "inline-block";
+  document.querySelector(".update-btn").style.display = "none";
+
+  loadStudents();
+
+});
