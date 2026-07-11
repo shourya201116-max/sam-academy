@@ -3,7 +3,9 @@ import { db } from "./firebase.js";
 import {
   collection,
   addDoc,
-  getDocs
+  getDocs,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const table = document.getElementById("studentTable");
@@ -15,9 +17,9 @@ async function loadStudents() {
 
   const querySnapshot = await getDocs(collection(db, "students"));
 
-  querySnapshot.forEach((doc) => {
+  querySnapshot.forEach((studentdoc) => {
 
-    const student = doc.data();
+    const student = studentdoc.data();
 
     table.innerHTML += `
       <tr>
@@ -27,9 +29,10 @@ async function loadStudents() {
         <td>${student.marks}%</td>
         <td>${student.fees}</td>
         <td>
-          <button>Edit</button>
-          <button>Delete</button>
-        </td>
+<button class="deleteBtn" data-id="${studentDoc.id}">
+Delete
+</button>
+</td>
       </tr>
     `;
 
@@ -58,3 +61,22 @@ document.querySelector(".add-btn").addEventListener("click", async () => {
 });
 
 loadStudents();
+document.addEventListener("click", async (e) => {
+
+  if (e.target.classList.contains("deleteBtn")) {
+
+    const id = e.target.dataset.id;
+
+    if (confirm("Delete this student?")) {
+
+      await deleteDoc(doc(db, "students", id));
+
+      alert("Student Deleted");
+
+      loadStudents();
+
+    }
+
+  }
+
+});
