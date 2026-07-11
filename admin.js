@@ -1,13 +1,14 @@
 import { db } from "./firebase.js";
 
 import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc,
-  updateDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+collection,
+addDoc,
+getDocs,
+deleteDoc,
+doc,
+updateDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const table = document.getElementById("studentTable");
 let editingStudentId = null;
@@ -132,5 +133,32 @@ document.querySelector(".update-btn").addEventListener("click", async () => {
   document.querySelector(".update-btn").style.display = "none";
 
   loadStudents();
+
+});
+document.getElementById("uploadNoteBtn").addEventListener("click", async () => {
+
+const title = document.getElementById("noteTitle").value;
+const className = document.getElementById("noteClass").value;
+const subject = document.getElementById("noteSubject").value;
+const link = document.getElementById("noteLink").value;
+
+if(title==="" || link===""){
+alert("Please fill all fields");
+return;
+}
+
+await addDoc(collection(db,"notes"),{
+
+title,
+class:className,
+subject,
+link
+
+});
+
+alert("Study Material Added Successfully!");
+
+document.getElementById("noteTitle").value="";
+document.getElementById("noteLink").value="";
 
 });
