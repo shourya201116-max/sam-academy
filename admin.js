@@ -62,7 +62,7 @@ document.querySelector(".add-btn").addEventListener("click", async () => {
   });
 
   alert("Student Added Successfully!");
-
+document.querySelector(".section").reset;
   loadStudents();
 
 });
