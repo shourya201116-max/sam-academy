@@ -225,7 +225,68 @@ Dashboard Overview
 </ul>
 
 </div>
-<script src="script.js"></script>
+<!-- Dashboard Bottom Section -->
+<div class="dashboard-grid">
+
+    <div class="chart-card">
+        <h2>Performance</h2>
+        <canvas id="marksChart"></canvas>
+    </div>
+
+    <div class="study-card">
+        <h2>Today's Target</h2>
+
+        <div class="task">
+            <input type="checkbox" checked>
+            Mathematics
+        </div>
+
+        <div class="task">
+            <input type="checkbox">
+            Science
+        </div>
+
+        <div class="task">
+            <input type="checkbox">
+            English
+        </div>
+
+        <div class="task">
+            <input type="checkbox">
+            Social Science
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx=document.getElementById('marksChart');
+
+new Chart(ctx,{
+type:'line',
+
+data:{
+labels:['Unit 1','Unit 2','Unit 3','Half Yearly','Pre Board'],
+datasets:[{
+label:'Marks %',
+data:[82,88,90,94,97],
+fill:false,
+borderWidth:3,
+tension:.4
+}]
+},
+
+options:{
+responsive:true
+}
+
+});
+
+</script>
 
 </body>
 </html>
