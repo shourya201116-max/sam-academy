@@ -262,3 +262,19 @@ margin-top:15px;
 color:#0b3d91;
 font-weight:bold;
 }
+.btn{
+display:inline-block;
+background:#0B3D91;
+color:white;
+padding:14px 28px;
+margin:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#FDB813;
+color:black;
+}
