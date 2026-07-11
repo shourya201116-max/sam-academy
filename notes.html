@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Materials | SAM Academy</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fc;
+padding:30px;
+}
+
+h1{
+text-align:center;
+color:#0B3D91;
+}
+
+#notesContainer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.note{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.note h3{
+color:#0B3D91;
+margin-bottom:10px;
+}
+
+.note p{
+margin:6px 0;
+}
+
+.note a{
+display:inline-block;
+margin-top:15px;
+padding:10px 15px;
+background:#0B3D91;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>📚 Study Materials</h1>
+
+<div id="notesContainer"></div>
+
+<script type="module" src="notes.js"></script>
+
+</body>
+</html>
