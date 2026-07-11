@@ -5,11 +5,12 @@ import {
   addDoc,
   getDocs,
   deleteDoc,
-  doc
+  doc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const table = document.getElementById("studentTable");
-
+let editingStudentId = null;
 // Load all students
 async function loadStudents() {
 
@@ -29,7 +30,11 @@ async function loadStudents() {
         <td>${student.marks}%</td>
         <td>${student.fees}</td>
         <td>
-<button class="deleteBtn" data-id="${studentdoc.id}"
+<button class="editBtn" data-id="${studentDoc.id}">
+Edit
+</button>
+
+<button class="deleteBtn" data-id="${studentDoc.id}">
 Delete
 </button>
 </td>
