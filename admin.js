@@ -12,37 +12,38 @@ import {
 const table = document.getElementById("studentTable");
 let editingStudentId = null;
 // Load all students
+
 async function loadStudents() {
 
   table.innerHTML = "";
 
   const querySnapshot = await getDocs(collection(db, "students"));
 
-  querySnapshot.forEach((studentdoc) => {
+  querySnapshot.forEach((studentDoc) => {
 
-    const student = studentdoc.data();
+    const student = studentDoc.data();
 
     table.innerHTML += `
-     table.innerHTML += `
-<tr>
-<td>${student.name}</td>
-<td>${student.class}</td>
-<td>${student.attendance}%</td>
-<td>${student.marks}%</td>
-<td>${student.fees}</td>
-<td>
-<button class="editBtn" data-id="${studentdoc.id}">
-Edit
-</button>
+      <tr>
+        <td>${student.name}</td>
+        <td>${student.class}</td>
+        <td>${student.attendance}%</td>
+        <td>${student.marks}%</td>
+        <td>${student.fees}</td>
+        <td>
+          <button class="editBtn" data-id="${studentDoc.id}">
+            Edit
+          </button>
 
-<button class="deleteBtn" data-id="${studentdoc.id}">
-Delete
-</button>
-</td>
-</tr>
-`; 
-
+          <button class="deleteBtn" data-id="${studentDoc.id}">
+            Delete
+          </button>
+        </td>
+      </tr>
+    `;
   });
+
+  document.getElementById("totalStudents").textContent = querySnapshot.size;
 
 }
 
