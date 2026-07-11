@@ -123,4 +123,21 @@ document.getElementById("message").innerHTML=error.message;
 </script>
 
 </body>
-</html>
+<script type="module">
+import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const loginBtn = document.querySelector("button");
+const email = document.querySelector('input[type="email"]');
+const password = document.querySelector('input[type="password"]');
+
+loginBtn.addEventListener("click", async () => {
+  try {
+    await signInWithEmailAndPassword(auth, email.value, password.value);
+    alert("Login Successful!");
+    window.location.href = "student-dashboard.html";
+  } catch (error) {
+    alert(error.message);
+  }
+});
+</script>
