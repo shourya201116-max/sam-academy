@@ -23,23 +23,24 @@ async function loadStudents() {
     const student = studentdoc.data();
 
     table.innerHTML += `
-      <tr>
-        <td>${student.name}</td>
-        <td>${student.class}</td>
-        <td>${student.attendance}%</td>
-        <td>${student.marks}%</td>
-        <td>${student.fees}</td>
-        <td>
-<button class="editBtn" data-id="${studentDoc.id}">
+     table.innerHTML += `
+<tr>
+<td>${student.name}</td>
+<td>${student.class}</td>
+<td>${student.attendance}%</td>
+<td>${student.marks}%</td>
+<td>${student.fees}</td>
+<td>
+<button class="editBtn" data-id="${studentdoc.id}">
 Edit
 </button>
 
-<button class="deleteBtn" data-id="${studentDoc.id}">
+<button class="deleteBtn" data-id="${studentdoc.id}">
 Delete
 </button>
 </td>
-      </tr>
-    `;
+</tr>
+`; 
 
   });
 
