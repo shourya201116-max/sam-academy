@@ -81,6 +81,72 @@ font-size:30px;
 font-weight:bold;
 color:#FDB813;
 }
+.section{
+margin-top:40px;
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.student-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+.student-table th,
+.student-table td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.student-table th{
+background:#0B3D91;
+color:white;
+}
+
+.section input,
+.section select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+.add-btn{
+background:#0B3D91;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+.edit{
+background:#FDB813;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.delete{
+background:#e53935;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.paid{
+color:green;
+font-weight:bold;
+}
 </style>
 
 </head>
@@ -138,6 +204,92 @@ color:#FDB813;
 </div>
 
 </div>
+<!-- Student Management -->
 
+<div class="section">
+
+<h2>👨‍🎓 Student Management</h2>
+
+<table class="student-table">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Class</th>
+
+<th>Attendance</th>
+
+<th>Marks</th>
+
+<th>Fees</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Shourya</td>
+
+<td>10</td>
+
+<td>96%</td>
+
+<td>92%</td>
+
+<td><span class="paid">Paid</span></td>
+
+<td>
+
+<button class="edit">Edit</button>
+
+<button class="delete">Delete</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<br>
+
+<div class="section">
+
+<h2>➕ Add Student</h2>
+
+<input type="text" placeholder="Student Name">
+
+<input type="text" placeholder="Class">
+
+<input type="number" placeholder="Attendance">
+
+<input type="number" placeholder="Marks">
+
+<select>
+
+<option>Paid</option>
+
+<option>Pending</option>
+
+</select>
+
+<button class="add-btn">
+
+Add Student
+
+</button>
+
+</div>
 </body>
 </html>
