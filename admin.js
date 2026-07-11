@@ -162,3 +162,25 @@ document.getElementById("noteTitle").value="";
 document.getElementById("noteLink").value="";
 
 });
+document.getElementById("addNoticeBtn").addEventListener("click", async () => {
+
+  const title = document.getElementById("noticeTitle").value;
+  const message = document.getElementById("noticeMessage").value;
+
+  if (!title || !message) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  await addDoc(collection(db, "notices"), {
+    title: title,
+    message: message,
+    date: new Date().toLocaleDateString()
+  });
+
+  alert("Notice Published Successfully!");
+
+  document.getElementById("noticeTitle").value = "";
+  document.getElementById("noticeMessage").value = "";
+
+});
