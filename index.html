@@ -1,207 +1,117 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAM Academy of Science & Library</title>
 
-  <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAM Academy of Science</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
 <header>
-  <div class="logo">SAM Academy</div>
 
-  <nav>
+<nav class="navbar">
 
-<a href="index.html">Home</a>
+<div class="logo">
 
-<a href="#courses">Courses</a>
+<img src="logo.png" alt="SAM Academy Logo">
 
-<a href="notes.html">Study Materials</a>
+<div>
 
-<a href="notices.html">Notice Board</a>
+<h2>SAM Academy</h2>
 
-<a href="student-dashboard.html">Student Dashboard</a>
+<p>Let's Grow Your Mind</p>
 
-<a href="admin.html">Admin Panel</a>
+</div>
 
-<a href="#contact">Contact</a>
+</div>
 
-  </nav>
+<ul class="nav-links">
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#courses">Courses</a></li>
+
+<li><a href="#results">Results</a></li>
+
+<li><a href="#gallery">Gallery</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+<li>
+
+<a href="login.html" class="login-btn">
+
+Student Login
+
+</a>
+
+</li>
+
+</ul>
+
+</nav>
+
 </header>
 
 <section class="hero">
 
-<h1>SAM Academy of Science & Library</h1>
+<div class="hero-overlay">
 
-<p>Admissions Open 2026–27</p>
+<div class="hero-content">
 
-<a href="#admission" class="btn">
+<span class="admission">
+
+🎓 Admissions Open 2026–27
+
+</span>
+
+<h1>
+
+Welcome to
+
+<span>SAM Academy of Science</span>
+
+</h1>
+
+<p>
+
+A trusted coaching institute for Classes 8, 9 & 10 with experienced faculty,
+weekly tests, premium study material and a peaceful library.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#admission" class="btn-primary">
+
 Enroll Now
+
 </a>
 
-</section>
-<section class="quick-links">
+<a href="login.html" class="btn-secondary">
 
-<h2>Quick Access</h2>
+Student Login
 
-<div class="cards">
-
-<div class="card">
-<a href="student-dashboard.html">🎓 Student Dashboard</a>
-</div>
-
-<div class="card">
-<a href="admin.html">👨‍💼 Admin Panel</a>
-</div>
-
-<div class="card">
-<a href="notes.html">📚 Study Materials</a>
-</div>
-
-<div class="card">
-<a href="notices.html">📢 Notice Board</a>
-</div>
-
-</div>
-
-</section>
-<section id="courses">
-
-<h2>Our Courses</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Class 8</h3>
-<p>Complete Science Coaching</p>
-</div>
-
-<div class="card">
-<h3>Class 9</h3>
-<p>Board Preparation</p>
-</div>
-
-<div class="card">
-<h3>Class 10</h3>
-<p>90+ Board Target Batch</p>
-</div>
-
-</div><!-- ADMISSION -->
-<section id="admission">
-
-<h2>Admission Enquiry</h2>
-
-<form class="admission-form">
-
-<input type="text" placeholder="Student Name" required>
-
-<input type="text" placeholder="Parent Name" required>
-
-<input type="tel" placeholder="Mobile Number" required>
-
-<select required>
-<option>Select Class</option>
-<option>Class 8</option>
-<option>Class 9</option>
-<option>Class 10</option>
-</select>
-
-<textarea placeholder="Message"></textarea>
-
-<button type="submit">Submit</button>
-
-</form>
-
-</section>
-
-</section><script src="script.js"></script>
-
-<
-<script src="script.js"></script>
-
-<
-<a href="https://wa.me/919370136367"
-class="whatsapp"
-target="_blank">💬</a>
-<section id="why">
-
-<h2>Why Choose SAM Academy?</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>👨‍🏫 Expert Faculty</h3>
-<p>Experienced teachers with personal attention.</p>
-</div>
-
-<div class="card">
-<h3>📚 Quality Study Material</h3>
-<p>Well-designed notes and practice questions.</p>
-</div>
-
-<div class="card">
-<h3>📝 Weekly Tests</h3>
-<p>Regular tests to track your progress.</p>
-</div>
-
-<div class="card">
-<h3>🏆 Board Exam Preparation</h3>
-<p>Special guidance for scoring 90%+ marks.</p>
-</div>
-
-</div>
-
-</section>
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-
-<h2>What Our Students Say</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"Excellent teaching and regular tests helped me score well in my board exams."</p>
-<h4>— Class 10 Student</h4>
-</div>
-
-<div class="card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"The library is peaceful, and the teachers explain every topic clearly."</p>
-<h4>— Class 9 Student</h4>
-</div>
-<section class="hero">
-
-<h1>SAM Academy of Science & Library</h1>
-
-<p>Admissions Open 2026–27</p>
-
-<a href="#admission" class="btn">
-Enroll Now
 </a>
 
-<br><br>
+</div>
 
-<a href="login.html" class="btn">
-🎓 Student Login
-</a>
-
-<a href="admin.html" class="btn">
-👨‍💼 Admin Login
-</a>
-
-</section>
-<div class="card">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>"Best place for Science preparation with personal attention."</p>
-<h4>— Parent</h4>
 </div>
 
 </div>
 
 </section>
-
